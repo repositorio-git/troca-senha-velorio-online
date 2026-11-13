@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Dry-run (só lê, não grava nem envia)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "args": ["--dry-run", "--mostrar-navegador"],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Teste: GRAVA 1 unidade, e-mail só pra mim",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--somente", "${input:unidade}",
+                "--email-teste", "${input:emailTeste}",
+                "--mostrar-navegador"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ],
+    "inputs": [
+        {
+            "id": "unidade",
+            "type": "pickString",
+            "description": "Unidade que vai ter a senha trocada DE VERDADE",
+            "options": ["Cristo Rei", "São Vicente", "Saint Hilaire", "Memorial da Colina", "São José"]
+        },
+        {
+            "id": "emailTeste",
+            "type": "promptString",
+            "description": "Seu e-mail (recebe o e-mail da unidade no lugar dela)"
+        }
+    ]
+}
